@@ -1,0 +1,192 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+.hidden {
+  display: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding-top: 20px;
+  font-family: "Futura PT", sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stage {
+  width: 100vw;
+  height: auto;
+  flex-grow: 3;
+}
+
+.carousel {
+  width: 100vw;
+  height: auto;
+}
+
+.carousel-img {
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.nav {
+  width: 100%;
+  height: 12%;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.nav .logo {
+  width: 20%;
+  height: 70%;
+  margin-left: 1em;
+  box-sizing: border-box;
+  align-content: center;
+  vertical-align: center;
+}
+
+.nav .logo img {
+  height: 100%;
+}
+
+.nav .logo .btn-project {
+  background-color: white;
+  padding: 0.5em;
+  margin: 0.25em;
+}
+
+.nav .progot-title {
+  height: auto;
+  flex-grow: 1;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.nav .project-client, .nav .project-name, .nav .project-location {
+  fogo-wrapperfamily: "Futura PT", sans-serif;
+  color: white;
+  margin: 0;
+}
+
+.nav .project-client {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+}
+
+.nav .project-name {
+  font-size: 2em;
+  font-weight: medium;
+  margin-right: 0.5em;
+}
+
+.nav .project-location {
+  text-transform: uppercase;
+  font-size: 0.75em;
+}
+
+.info-panel {
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footer {
+  width: 100vw;
+  height: 5%;
+  background-color: black;
+}
+
+.inline-flex {
+  overflow-y: auto;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.project-grid {
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+}
+
+.project-grid .project-grid-tags {
+  background-color: black;
+  padding: 3em;
+  flex-basis: 20%;
+  flex-grow: 1;
+}
+
+.project-grid .project-grid-buttons {
+  padding: 3em;
+  background-color: black;
+  flex-grow: 4;
+}
+
+.project-grid .project-tags, .project-grid .project-tags-active, .project-grid .project-tags-inactive {
+  color: white;
+  text-transform: uppercase;
+  user-select: none;
+  text-align: center;
+}
+
+.project-grid .project-tags {
+  font-size: 1.5em;
+  margin-top: 2em;
+}
+
+.project-button {
+  width: 10vw;
+  max-width: 300px;
+  height: 10vw;
+  max-height: 300px;
+  padding: 0.5em;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  z-index: 999999;
+}
+
+.project-button .project-button-type {
+  color: white;
+  float: top;
+}
+
+.project-button p.button-text-location, .project-button p.button-text-project-name {
+  color: white;
+  font-family: "Futura PT", sans-serif;
+}
+
+.project-button p.button-text-location {
+  text-transform: uppercase;
+}
+
+.project-button p.button-text-project-name {
+  text-transform: uppercase;
+}
+
+.project-button .project-button-name {
+  color: white;
+  float: bottom;
+}
+
+.project-button-filter-inactive {
+  opacity: 0.33;
+}
+
+.project-grid-button-wrap {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  align-content: space-around;
+  justify-content: space-around;
+}

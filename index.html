@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <!--  <meta name="apple-mobile-web-app-capable" content="yes"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewport-meta" />
+  <!--   https://kaspars.net/blog/dev/change-viewport-meta-window-size -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <title>My New Pen!</title>
+
+  <!--  Styles  -->
+  <link rel="stylesheet" href="styles/frow.processed.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="styles/index.processed.css">
+</head>
+
+<body>
+  <div class="nav">
+    <!--     replace with blank space for floating header? -->
+    <div class="logo">
+      <img src="https://s3-us-west-2.amazonaws.com/rv-test-img-src/zgf-logo-heavier.svg" alt="">
+    </div>
+
+    <div class="project-title">
+
+    </div>
+
+  </div>
+
+  <div class="stage">
+
+    <div class="info-panel"> </div>
+
+    <div class="carousel" id="images">
+    </div>
+
+  </div>
+
+  <div class="project-grid hidden">
+    <div class="project-grid-tags">
+      <div class="project-tags" data-tag="all">Show All</div>
+      <div class="project-tags" data-tag="streetcar">Streetcar</div>
+      <div class="project-tags" data-tag="district-planning">District Planning</div>
+      <div class="project-tags" data-tag="transit">Transit</div>
+      <div class="project-tags" data-tag="public-spaces">Public Spaces</div>
+      <div class="project-tags" data-tag="light-rail">Light Rail</div>
+      <div class="project-tags" data-tag="streetscape">Streetscape</div>
+      <div class="project-tags" data-tag="innovation">Innovations</div>
+    </div>
+    <div class="project-grid-buttons">
+
+      <div class="project-grid-button-wrap">
+
+        <div class="project-button" id="broadwaycorridor" data-img="slideshow_broadway-corridor-01.jpg%slideshow_broadway-corridor-02.jpg%slideshow_broadway-corridor-03.jpg%slideshow_broadway-corridor-04.jpg" data-thumbnail="slideshow_broadway-corridor-01.jpg"
+          data-clientlong="Prosper Portland" data-nameshort="Broadway Corridor Redevelopment" data-projlocation="Portland, OR" data-tag="all district-planning streetcar transit" style="background-image: url(https://s3-us-west-2.amazonaws.com/rv-test-img-src/thumbnails/thumb-_0000_slideshow_10th-street-01.jpg); background-position: center;">Broadway Corridor</div>
+
+        <div class="project-button" id="7thstreet" data-img="slideshow_7th-street-01.jpg%slideshow_7th-street-02.jpg" data-thumbnail="Slideshow_Calgary-Green-Line-01.jpg" data-clientlong="City of Boise" data-nameshort="7th Street" data-projlocation="Boise, ID" data-tag="all streetscape transit" style="background-image: url(https://s3-us-west-2.amazonaws.com/rv-test-img-src/thumbnails/thumb-_0003_slideshow_7th-street-01.jpg); background-position: center;">7th Street</div>
+
+        <div class="project-button" id="10th-street" data-img="slideshow_10th-street-01.jpg%slideshow_10th-street-02.jpg" data-thumbnail="Slideshow_Calgary-Green-Line-01.jpg" data-clientlong="National Capital Planning Commission / U.S. General Services Administration" data-clientshort="National Capital Planning Commission"
+          data-namelong="10th Street SW EcoDistrict" data-nameshort="10th Street" data-projlocation="Washington, DC" data-tag="all streetscape" style="background-image: url(https://s3-us-west-2.amazonaws.com/rv-test-img-src/thumbnails/thumb-_0000_slideshow_10th-street-01.jpg); background-position: center;">10th Street</div>
+
+        <div class="project-button" id="calgary-green-line" data-img="Slideshow_Calgary-Green-Line-01.jpg%Slideshow_Calgary-Green-Line-02.jpg%Slideshow_Calgary-Green-Line-03.jpg" data-thumbnail="Slideshow_Calgary-Green-Line-01.jpg" data-clientlong="City of Calgary"
+          data-clientshort="City of Calgary" data-namelong="Calgary Green Line" data-nameshort="Calgary Green Line" data-projlocation="Calgary, Canada" data-size="25 miles" data-status="in progress" data-tag="all streetcar transit district-planning" style="background-image: url(https://s3-us-west-2.amazonaws.com/rv-test-img-src/thumbnails/thumb-_0002_slideshow_calgary-green-line-01.jpg ); background-position: center;">Calgary Green Line</div>
+
+        <div class="project-button" id="broadwaycorridor" data-img="slideshow_broadway-corridor-01.jpg%slideshow_broadway-corridor-02.jpg%slideshow_broadway-corridor-03.jpg%slideshow_broadway-corridor-04.jpg" data-clientlong="Prosper Portland" data-nameshort="Broadway Corridor Redevelopment"
+          data-projlocation="Portland, OR">Broadway Corridor</div>
+
+        <div class="project-button" id="broadwaycorridor" data-img="slideshow_broadway-corridor-01.jpg%slideshow_broadway-corridor-02.jpg%slideshow_broadway-corridor-03.jpg%slideshow_broadway-corridor-04.jpg" data-clientlong="Prosper Portland" data-nameshort="Broadway Corridor Redevelopment"
+          data-projlocation="Portland, OR">Broadway Corridor</div>
+      </div>
+
+    </div>
+  </div>
+
+    <div class="footer">
+    <button id="showgrid">show grid</button>
+  </div>
+  
+  <!-- Scripts -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>

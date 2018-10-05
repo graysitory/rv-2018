@@ -1,0 +1,218 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+
+$font-stack: "Futura PT", sans-serif;
+
+$nav-height: 12%;
+$footer-height: 5%;
+$stage-height: auto;
+
+$stage-width: 100vw;
+
+.hidden {
+  display: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding-top: 20px;
+  font-family: $font-stack;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stage {
+  width: $stage-width;
+  height: $stage-height; //(100vw * .62)
+  flex-grow: 3;
+}
+.carousel {
+  width: $stage-width;
+  height: $stage-height;
+}
+
+.carousel-img {
+  width: $stage-width;
+  height: $stage-height;
+  overflow: hidden;
+}
+
+.nav {
+  width: 100%;
+  height: $nav-height;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  .logo {
+    width: 20%;
+    height: 70%;
+    margin-left: 1em;
+    box-sizing: border-box;
+    align-content: center;
+    vertical-align: center;
+    
+    img {
+      height: 100%;
+    }
+    // flex-grow: 1;
+
+    .btn-project {
+      background-color: white;
+      padding: 0.5em;
+      margin: 0.25em;
+    }
+  }
+
+  .progot-title {
+    height: auto;
+    flex-grow: 1;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+
+  %title-base {
+    fogo-wrapperfamily: $font-stack;
+    color: white;
+    margin: 0;
+  }
+
+  .project-client {
+    @extend %title-base;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+  }
+  .project-name {
+    @extend %title-base;
+    font-size: 2em;
+    font-weight: medium;
+    margin-right: 0.5em;
+  }
+  .project-location {
+    @extend %title-base;
+    text-transform: uppercase;
+    font-size: 0.75em;
+  }
+}
+
+.info-panel {
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footer {
+  width: 100vw;
+  height: $footer-height;
+  background-color: black;
+}
+
+.inline-flex {
+  overflow-y: auto;
+  display: inline-flex;
+  flex-direction: row;
+
+}
+
+
+.project-grid {
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  
+  .project-grid-tags {
+    background-color: rgba(0, 0, 0, 1.0);
+    padding: 3em;
+    flex-basis: 20%;
+    flex-grow: 1;
+  }
+  
+  .project-grid-buttons {
+    padding: 3em;
+    background-color: black;
+    flex-grow: 4;
+
+  }
+  
+  %project-tags {
+    color: white;
+    text-transform: uppercase;
+    user-select: none;
+    text-align: center;
+  }
+  
+  .project-tags {
+    @extend %project-tags;
+    font-size: 1.5em;
+    margin-top: 2em;
+    
+  }
+  
+  .project-tags-active {
+    @extend %project-tags;
+    
+  }
+  
+  .project-tags-inactive {
+    @extend %project-tags;
+
+  }
+  
+}
+
+.project-button {
+  width: 10vw;
+  max-width: 300px;
+  height: 10vw;
+  max-height: 300px;
+  padding: 0.5em;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  z-index: 999999;
+  .project-button-type {
+    color: white;
+    float: top;
+  }
+  
+  %button-text {
+   color: white;
+    font-family: $font-stack;
+  }
+  
+  p.button-text-location {
+    @extend %button-text;
+    text-transform: uppercase;
+  }
+  p.button-text-project-name {
+    @extend %button-text;
+    text-transform: uppercase;
+  }
+  
+  .project-button-name {
+    color: white;
+    float: bottom;
+  }
+}
+
+.project-button-filter-inactive {
+  opacity: 0.33;
+}
+
+.project-grid-button-wrap {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  align-content: space-around;
+  justify-content: space-around;
+}
