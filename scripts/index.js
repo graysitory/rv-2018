@@ -4,8 +4,10 @@
 // GLOBAL VARIABLES
 
 var imgPath = "images/";
-var stageHeight = getStageHeight();
-var stageWidth = getStageWidth();
+var calculatedDimensions = [];
+
+// var stageHeight = getStageHeight();
+// var stageWidth = getStageWidth();
 
 
 // Viewport Settings
@@ -23,34 +25,143 @@ function setViewport() {
 }
 
 
-function getStageHeight() { // determines stage height to style .carousel-div to correct height.
-  var stageHeight = $("div.stage").height();
+//
+// function calcBodyDimensions() {
+//
+//   var calculatedDimensions = []; // reset calc dimensions array
+//
+//   var winWidth = $(window).width();
+//   var winHeight = $(window).height();
+//
+//   var navWidth = winWidth;
+//   var navHeight = winHeight * 0.12; // 12% of window height
+//
+//   var footerWidth = winWidth;
+//   var footerHeight = winHeight * 0.05; // 5% of window height
+//
+//   var stageWidth = winWidth;
+//   var stageHeight = winHeight - (footerHeight + navHeight);
+//
+//   calculatedDimensions.push(navWidth, navHeight, footerWidth, footerHeight, stageWidth, stageHeight);
+//
+//   return calculatedDimensions;
+//
+// }
 
+
+
+function calcStageWidth() {
+    var winWidth = $(window).width();
+    $("div.stage").width(winWidth);
+}
+
+function calcNavWidth() {
+    var winWidth = $(window).width();
+    $("div.nav").width(winWidth);
+}
+
+function calcFooterWidth() {
+    var winWidth = $(window).width();
+    $("div.footer").width(winWidth);
+}
+
+function calcNavHeight() {
+  var winHeight = $(window).height();
+  var navHeight = winHeight * 0.12; // 12% of window height
+  $("div.nav").height(navHeight);
+  return navHeight;
+}
+
+function calcFooterHeight() {
+  var winHeight = $(window).height();
+  var footerHeight = winHeight * 0.05;
+  $("div.footer").height(footerHeight);
+  return footerHeight;
+}
+
+function calcStageHeight() {
+  var winHeight = $(window).height();
+
+  var otherHeights = calcFooterHeight() + calcNavHeight();
+  console.log(otherHeights)
+  var stageHeight = winHeight - otherHeights;
+  console.log(stageHeight)
+
+  console.log(otherHeights + stageHeight)
+  console.log(winHeight)
+
+  $("div.stage").height(stageHeight)
   return stageHeight;
 }
 
-function getStageWidth() {
-  var stageWidth = $("div.stage").width();
-  return stageWidth
-}
+calcStageHeight()
+
+// function calcWidth() {
+//   var winWidth = $(window).width();
+//   return winWidth;
+// }
+//
+// function calcNavHeight() {
+//   var winHeight = $(window).height();
+//   var navHeight = winHeight * 0.12; // 12% of window height
+//   return navHeight
+// }
+//
+// function calcFooterHeight() {
+//   var winHeight = $(window).height();
+//   var footerHeight = winHeight * 0.05; // 5% of window height
+//   return footerHeight;
+// }
+//
+// function calcStageHeight(calcNavHeight, calcFooterHeight) {
+//   var winHeight = $(window).height();
+//   var stageHeight = winHeight - (calcNavHeight() + calcFooterHeight())
+//   console.log(stageHeight);
+//   return stageHeight;
+// }
+//
+// function setBodyDimensions() {
+//
+//   $("div.nav").width(calculatedDimensions[0]);
+//   $("div.nav").height(calculatedDimensions[1]);
+//   $("div.footer").width(calculatedDimensions[2]);
+//   $("div.footer").height(calculatedDimensions[3]);
+//   $("div.stage").width(calculatedDimensions[4]);
+//   $("div.stage").height(calculatedDimensions[5]);
+//
+//   console.log(calculatedDimensions)
+// }
 
 
-function recalcStageHeight() {
-  var header = $("div.nav").height();
-  var footer = $("div.footer").height();
-  var winSize = $(window).height();
-  var recalcHeight = winSize - ( header + footer );
-  console.log(recalcHeight)
 
-//  $("div.stage").height(recalcHeight);
-
-  return recalcHeight;
-}
-
-function recalcStageWidth() {
-  var recalcWidth = $(window).width();
-  return recalcWidth
-}
+// function getStageHeight() { // determines stage height to style .carousel-div to correct height.
+//   var stageHeight = $("div.stage").height();
+//
+//   return stageHeight;
+// }
+//
+// function getStageWidth() {
+//   var stageWidth = $("div.stage").width();
+//   return stageWidth
+// }
+//
+//
+// function recalcStageHeight() {
+//   var header = $("div.nav").height();
+//   var footer = $("div.footer").height();
+//   var winSize = $(window).height();
+//   var recalcHeight = winSize - ( header + footer );
+//   console.log(recalcHeight)
+//
+// //  $("div.stage").height(recalcHeight);
+//
+//   return recalcHeight;
+// }
+//
+// function recalcStageWidth() {
+//   var recalcWidth = $(window).width();
+//   return recalcWidth
+// }
 
 
 
@@ -76,13 +187,32 @@ function setAllButtonText() {
 
 $(document).ready(function() {
   setViewport(); // set viewport
-  window.onresize = function() {
-    // reset viewport on resize
-    setViewport();
-    $(".carousel-img").height(recalcStageHeight());
-    getStageWidth();
-  };
+  calcNavWidth();
+  calcStageWidth();
+  calcFooterWidth();
+  calcNavHeight();
+  calcStageHeight();
+  calcFooterHeight();
+  $("div.project-grid").height(calcStageHeight());
+  $("div.project-grid").width(calcStageWidth());
 
+  window.onresize = function() {
+
+    setViewport();  // reset viewport on resize
+    calcNavWidth();
+    calcStageWidth();
+    calcFooterWidth();
+    calcNavHeight();
+    calcStageHeight();
+    calcFooterHeight();
+    $("div.project-grid").height(calcStageHeight());
+    $("div.project-grid").width(calcStageWidth());
+
+
+
+    // $(".carousel-img").height(recalcStageHeight());
+    // getStageWidth();
+  };
   setAllButtonText();
 
 
@@ -92,10 +222,10 @@ $(document).ready(function() {
   $("button#showgrid").click(function() {
     $("div.project-grid").toggleClass("hidden", "remove");
     $("div.project-grid").toggleClass("inline-flex", "add");
-    $("div.project-grid").height(recalcStageHeight());
-    $("div.project-grid").width(stageWidth);
     $("div.carousel").slick("unslick");
     $("div.carousel").html("");
+    $("div.carousel-img").toggleClass("hidden", "add");
+    $("div.carousel").toggleClass("hidden", "add");
 
     var projClient = "";
     var projName = "";
@@ -122,9 +252,11 @@ $(document).ready(function() {
 
     $("div.project-grid").toggleClass("hidden", "add");
     $("div.project-grid").toggleClass("inline-flex", "remove");
+    $("div.carousel").toggleClass("hidden", "remove");
+    $("div.carousel-img").toggleClass("hidden", "remove")
 
 
-    $(".carousel-img").height(recalcStageHeight());
+    $(".carousel-img").height(calcStageHeight());
     changeSliderProject(imgLinksArray);
     changeProjectTitle(projClient, projName, projLocation);
 
@@ -166,7 +298,7 @@ function changeSliderProject(currentProject) {
 
   for (var i = 0; i < currentProject.length; i++) {
 
-    var carouselImg = '<div class="carousel-img" style="height: ' + stageHeight + 'px; width: ' + stageWidth + 'px; background-image: url(' + imgPath + currentProject[i] + '); background-size: cover; background-position: center;"> </div>'
+    var carouselImg = '<div class="carousel-img" style="height: ' + calcStageHeight() + 'px; width: ' + calcStageWidth() + 'px; background-image: url(' + imgPath + currentProject[i] + '); background-size: cover; background-position: center;"> </div>'
 
     carouselImages.push(carouselImg);
 

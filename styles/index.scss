@@ -5,19 +5,19 @@
 
 $font-stack: "Futura PT", sans-serif;
 
-$nav-height: 12%;
-$footer-height: 5%;
+$nav-height: auto; //12%
+$footer-height: auto; //5%
 $stage-height: auto;
 
-$stage-width: 100vw;
+$stage-width: auto; //100vw
 
 .hidden {
   display: none;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  width: auto;
+  height: auto;
   margin: 0;
   font-family: $font-stack;
   box-sizing: border-box;
@@ -32,14 +32,14 @@ body {
   flex-grow: 3;
 }
 .carousel {
-  width: 100%; // switching this to 100vw will make the image zoom in
-  height: 100%;
+  width: auto; // switching this to 100vw will make the image zoom in
+  height: auto;
   // height: $stage-height;
 }
 
 .carousel-img {
-  width: 100%; // switching this to 100vw will make the image zoom in
-  height: 100%;
+  width: auto; // switching this to 100vw will make the image zoom in
+  height: auto;
   // height: $stage-height;
   // overflow: hidden;
 }
