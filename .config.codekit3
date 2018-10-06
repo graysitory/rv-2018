@@ -2108,6 +2108,117 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"/text-parse/input/10th-street": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/10th-street",
+		"oF": 0
+		},
+	"/text-parse/input/14th-street": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/14th-street",
+		"oF": 0
+		},
+	"/text-parse/input/15th-street": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/15th-street",
+		"oF": 0
+		},
+	"/text-parse/input/16th-street": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/16th-street",
+		"oF": 0
+		},
+	"/text-parse/input/7th-street.txt": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/7th-street.txt",
+		"oF": 0
+		},
+	"/text-parse/input/broadway-corridor": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/broadway-corridor",
+		"oF": 0
+		},
+	"/text-parse/input/calgary-green": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/calgary-green",
+		"oF": 0
+		},
+	"/text-parse/input/civic-center-transit": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/civic-center-transit",
+		"oF": 0
+		},
+	"/text-parse/input/columbia-heights": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/columbia-heights",
+		"oF": 0
+		},
+	"/text-parse/input/dc-streetcar": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/dc-streetcar",
+		"oF": 0
+		},
+	"/text-parse/input/everett-multimodal": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/everett-multimodal",
+		"oF": 0
+		},
+	"/text-parse/input/gondola": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/gondola",
+		"oF": 0
+		},
+	"/text-parse/input/kashiwa-no-ha": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/input/kashiwa-no-ha",
+		"oF": 0
+		},
+	"/text-parse/jparse.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/text-parse/jparse-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"/text-parse/jsparse.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/text-parse/jsparse-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"/text-parse/node_modules": {
 		"ft": 65536,
 		"oA": 2,
@@ -2136,6 +2247,38 @@
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
+		},
+	"/text-parse/parse-text.sh": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/parse-text.sh",
+		"oF": 0
+		},
+	"/text-parse/TEMPLATE": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/text-parse/TEMPLATE",
+		"oF": 0
+		},
+	"/todo.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "/todo.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
 		}
 	},
 "hooks": [

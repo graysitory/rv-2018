@@ -3,8 +3,9 @@
 
 // GLOBAL VARIABLES
 
-var imgPath = "https://s3-us-west-2.amazonaws.com/rv-test-img-src/";
+var imgPath = "images/";
 var stageHeight = getStageHeight();
+var stageWidth = getStageWidth();
 
 
 // Viewport Settings
@@ -26,6 +27,29 @@ function getStageHeight() { // determines stage height to style .carousel-div to
   var stageHeight = $("div.stage").height();
 
   return stageHeight;
+}
+
+function getStageWidth() {
+  var stageWidth = $("div.stage").width();
+  return stageWidth
+}
+
+
+function recalcStageHeight() {
+  var header = $("div.nav").height();
+  var footer = $("div.footer").height();
+  var winSize = $(window).height();
+  var recalcHeight = winSize - ( header + footer );
+  console.log(recalcHeight)
+
+//  $("div.stage").height(recalcHeight);
+
+  return recalcHeight;
+}
+
+function recalcStageWidth() {
+  var recalcWidth = $(window).width();
+  return recalcWidth
 }
 
 
@@ -55,7 +79,8 @@ $(document).ready(function() {
   window.onresize = function() {
     // reset viewport on resize
     setViewport();
-    getStageHeight();
+    $(".carousel-img").height(recalcStageHeight());
+    getStageWidth();
   };
 
   setAllButtonText();
@@ -67,7 +92,8 @@ $(document).ready(function() {
   $("button#showgrid").click(function() {
     $("div.project-grid").toggleClass("hidden", "remove");
     $("div.project-grid").toggleClass("inline-flex", "add");
-    $("div.project-grid").height(stageHeight)
+    $("div.project-grid").height(recalcStageHeight());
+    $("div.project-grid").width(stageWidth);
     $("div.carousel").slick("unslick");
     $("div.carousel").html("");
 
@@ -83,7 +109,7 @@ $(document).ready(function() {
 
   $(".project-button").on("click", function(e) {
 
-    console.log(this)
+
     var imgLinks = this.dataset.img; // get the string of links specified in html tag data-img
     var projClient = this.dataset.clientshort;
     var projName = this.dataset.nameshort;
@@ -97,6 +123,8 @@ $(document).ready(function() {
     $("div.project-grid").toggleClass("hidden", "add");
     $("div.project-grid").toggleClass("inline-flex", "remove");
 
+
+    $(".carousel-img").height(recalcStageHeight());
     changeSliderProject(imgLinksArray);
     changeProjectTitle(projClient, projName, projLocation);
 
@@ -133,17 +161,16 @@ function changeSliderProject(currentProject) {
   var carouselImages = [];
   $("div.carousel").slick("unslick"); // destroy previous
 
+  console.log(currentProject)
+  console.log(imgPath)
+
   for (var i = 0; i < currentProject.length; i++) {
-    // create div structure for each image
-    //  carouselImages.push("<div class='"'carousel-img'"'><img src='" + imgPath + currentProject[i] + "'></div>")
-    carouselImages.push(
-      '<div class="carousel-img" style=" height: ' +
-        stageHeight +
-        "px; background-image: url(" +
-        imgPath +
-        currentProject[i] +
-        '); background-size: cover; background-position: center;"> </div>'
-    );
+
+    var carouselImg = '<div class="carousel-img" style="height: ' + stageHeight + 'px; width: ' + stageWidth + 'px; background-image: url(' + imgPath + currentProject[i] + '); background-size: cover; background-position: center;"> </div>'
+
+    carouselImages.push(carouselImg);
+
+    console.log(carouselImages)
   }
   var builtCarousel = carouselImages.join(""); // join each index without a separator
 
