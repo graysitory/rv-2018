@@ -14,6 +14,7 @@ var stageHeight = getStageHeight();
 var stageWidth = getStageWidth();
 
 var allProjects = [];
+var currentTagProjects = [];
 
 
 // Viewport Settings
@@ -64,6 +65,7 @@ function recalcStageWidth() {
 
 function filterProjectGrid(tag) {
 
+  var currentTagProjects = []; // clear the active project type array
   //ref: https://jsfiddle.net/rronyy/vznjbx0t/
   var regex = new RegExp('\\b' + tag + '\\b');
 
@@ -71,6 +73,23 @@ function filterProjectGrid(tag) {
   $(".project-button").addClass("project-button-filter-inactive").filter(function() {
     return regex.test($(this).data('tag'));
   }).removeClass("project-button-filter-inactive");
+
+
+
+// To Pull all currently filtered stuff...clumsy execution, and returns "undefined" for everything without the class .project-button-filter-inactive.
+  $(".project-button").each(function() {
+    var active = $(this).not(".project-button-filter-inactive").attr("id");
+
+    if ( active !== undefined ) { // prevents pushing "undefined" to array for projects that are not filtered.
+          currentTagProjects.push(active);
+    }
+
+
+    // var active = $(this).not(".project-button-filter-inactive");
+    // currentTagProjects.push(active);
+  });
+
+  console.log(currentTagProjects);
 }
 
 
@@ -79,9 +98,10 @@ function getAllProjects() { // cycle through all projects in the grid and push t
   $("div.project-button").each(function() {
     var project = $(this).attr("id");
     allProjects.push(project);
-
+    currentTagProjects.push(project);
   })
 }
+
 
 
 function setAllButtonText() {
