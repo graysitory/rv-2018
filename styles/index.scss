@@ -19,7 +19,6 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-//  padding-top: 20px;
   font-family: $font-stack;
   box-sizing: border-box;
   display: flex;
@@ -29,18 +28,20 @@ body {
 
 .stage {
   width: $stage-width;
-  height: $stage-height; //(100vw * .62)
+  // height: $stage-height; //(100vw * .62)
   flex-grow: 3;
 }
 .carousel {
-  width: $stage-width;
-  height: $stage-height;
+  width: 100%; // switching this to 100vw will make the image zoom in
+  height: 100%;
+  // height: $stage-height;
 }
 
 .carousel-img {
-  width: $stage-width;
-  height: $stage-height;
-  overflow: hidden;
+  width: 100%; // switching this to 100vw will make the image zoom in
+  height: 100%;
+  // height: $stage-height;
+  // overflow: hidden;
 }
 
 .nav {
