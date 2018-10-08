@@ -83,85 +83,51 @@ function calcStageHeight() {
   var winHeight = $(window).height();
 
   var otherHeights = calcFooterHeight() + calcNavHeight();
-  console.log(otherHeights)
   var stageHeight = winHeight - otherHeights;
-  console.log(stageHeight)
-
-  console.log(otherHeights + stageHeight)
-  console.log(winHeight)
 
   $("div.stage").height(stageHeight)
   return stageHeight;
 }
 
-calcStageHeight()
+function resetStageWidthAndHeight() {
+  var stageWidth = calcStageWidth();
+  var stageHeight = calcStageHeight();
 
-// function calcWidth() {
-//   var winWidth = $(window).width();
-//   return winWidth;
-// }
-//
-// function calcNavHeight() {
-//   var winHeight = $(window).height();
-//   var navHeight = winHeight * 0.12; // 12% of window height
-//   return navHeight
-// }
-//
-// function calcFooterHeight() {
-//   var winHeight = $(window).height();
-//   var footerHeight = winHeight * 0.05; // 5% of window height
-//   return footerHeight;
-// }
-//
-// function calcStageHeight(calcNavHeight, calcFooterHeight) {
-//   var winHeight = $(window).height();
-//   var stageHeight = winHeight - (calcNavHeight() + calcFooterHeight())
-//   console.log(stageHeight);
-//   return stageHeight;
-// }
-//
-// function setBodyDimensions() {
-//
-//   $("div.nav").width(calculatedDimensions[0]);
-//   $("div.nav").height(calculatedDimensions[1]);
-//   $("div.footer").width(calculatedDimensions[2]);
-//   $("div.footer").height(calculatedDimensions[3]);
-//   $("div.stage").width(calculatedDimensions[4]);
-//   $("div.stage").height(calculatedDimensions[5]);
-//
-//   console.log(calculatedDimensions)
-// }
+  $("div.project-grid").height(stageHeight);
+  $("div.project-grid").width(stageWidth);
+  $("div.carousel-img").height(stageHeight);
+  $("div.carousel-img").width(stageWidth);
 
 
+}
 
-// function getStageHeight() { // determines stage height to style .carousel-div to correct height.
-//   var stageHeight = $("div.stage").height();
-//
-//   return stageHeight;
-// }
-//
-// function getStageWidth() {
-//   var stageWidth = $("div.stage").width();
-//   return stageWidth
-// }
-//
-//
-// function recalcStageHeight() {
-//   var header = $("div.nav").height();
-//   var footer = $("div.footer").height();
-//   var winSize = $(window).height();
-//   var recalcHeight = winSize - ( header + footer );
-//   console.log(recalcHeight)
-//
-// //  $("div.stage").height(recalcHeight);
-//
-//   return recalcHeight;
-// }
-//
-// function recalcStageWidth() {
-//   var recalcWidth = $(window).width();
-//   return recalcWidth
-// }
+function calcProjectGridDimensions() {
+  var stageWidth = $("div.stage").width();
+  var stageHeight = $("div.stage").height();
+
+  var tagsWidth = stageWidth * .20;
+  var gridWidth = stageWidth - tagsWidth;
+
+  $("div.project-grid-buttons").width(gridWidth).height(stageHeight);
+
+  $("div.project-grid-tags").width(tagsWidth)
+
+
+}
+
+
+function calcProjectButton() {
+  var gridWidth = $("div.project-grid-buttons").width();
+
+  var buttonSize = gridWidth * .15;
+
+  $("div.project-button").width(buttonSize);
+  $("div.project-button").height(buttonSize);
+
+
+}
+
+
 
 
 
@@ -171,9 +137,9 @@ function filterProjectGrid(tag) {
   var regex = new RegExp('\\b' + tag + '\\b');
 
 
-  $(".project-button").addClass("project-button-filter-inactive").filter(function() {
+  $(".project-button").addClass("project-button-filter-inactive").hide().filter(function() {
     return regex.test($(this).data('tag'));
-  }).removeClass("project-button-filter-inactive");
+  }).removeClass("project-button-filter-inactive").show();
 }
 
 
@@ -195,18 +161,22 @@ $(document).ready(function() {
   calcFooterHeight();
   $("div.project-grid").height(calcStageHeight());
   $("div.project-grid").width(calcStageWidth());
+  calcProjectButton();
 
   window.onresize = function() {
 
     setViewport();  // reset viewport on resize
+
+
+    resetStageWidthAndHeight();
     calcNavWidth();
     calcStageWidth();
     calcFooterWidth();
     calcNavHeight();
     calcStageHeight();
     calcFooterHeight();
-    $("div.project-grid").height(calcStageHeight());
-    $("div.project-grid").width(calcStageWidth());
+    calcProjectButton();
+
 
 
 
@@ -220,6 +190,9 @@ $(document).ready(function() {
   $("div.carousel").slick(); // initalize slick
 
   $("button#showgrid").click(function() {
+
+    calcProjectGridDimensions();
+
     $("div.project-grid").toggleClass("hidden", "remove");
     $("div.project-grid").toggleClass("inline-flex", "add");
     $("div.carousel").slick("unslick");

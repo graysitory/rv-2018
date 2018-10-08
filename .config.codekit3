@@ -16,6 +16,104 @@
 		"oAP": "/.gitignore",
 		"oF": 0
 		},
+	"/fonts/fpt_Bold-Oblique.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Bold-Oblique.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Bold.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Bold.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Book-Oblique.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Book-Oblique.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Book.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Book.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_DemiBold-Oblique.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_DemiBold-Oblique.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_DemiBold.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_DemiBold.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_ExtraBold-Oblique.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_ExtraBold-Oblique.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_ExtraBold.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_ExtraBold.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Heavy-Oblique.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Heavy-Oblique.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Heavy.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Heavy.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Light-Oblique.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Light-Oblique.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Light.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Light.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Medium-Oblique.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Medium-Oblique.woff2",
+		"oF": 0
+		},
+	"/fonts/fpt_Medium.woff2": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/fonts/fpt_Medium.woff2",
+		"oF": 0
+		},
 	"/images/DIALOG_LGM-Corporate-Colour.jpg": {
 		"ft": 16384,
 		"iS": 636729,
@@ -2021,6 +2119,65 @@
 		"oAP": "/license.txt",
 		"oF": 0
 		},
+	"/plugins/font-face-generator/generator.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/plugins/font-face-generator/generator.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/plugins/font-face-generator/LICENSE": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/plugins/font-face-generator/LICENSE",
+		"oF": 0
+		},
+	"/plugins/font-face-generator/mixin.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/plugins/font-face-generator/mixin.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/plugins/font-face-generator/package.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/plugins/font-face-generator/package-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/plugins/font-face-generator/README.md": {
+		"cB": 0,
+		"cS": 0,
+		"eF": 1,
+		"eL": 1,
+		"ema": 1,
+		"eSQ": 1,
+		"ft": 4096,
+		"oA": 0,
+		"oAP": "/plugins/font-face-generator/README.html",
+		"oF": 0,
+		"oFM": 0,
+		"oS": 0,
+		"pHT": 0,
+		"pME": 1,
+		"rFN": 0,
+		"uCM": 0
+		},
 	"/scripts/index-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -2057,6 +2214,19 @@
 		"oA": 0,
 		"oAP": "/scripts/index.min.js.map",
 		"oF": 0
+		},
+	"/styles/_font-face-mixin.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/styles/_font-face-mixin.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
 		},
 	"/styles/index.css": {
 		"aP": 1,
@@ -2260,6 +2430,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "/text-parse/TEMPLATE",
+		"oF": 0
+		},
+	"/todo.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/todo.html",
 		"oF": 0
 		},
 	"/todo.md": {

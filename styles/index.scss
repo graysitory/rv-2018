@@ -120,6 +120,8 @@ body {
   overflow-y: auto;
   display: inline-flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: space-around;
 
 }
 
@@ -127,19 +129,25 @@ body {
 .project-grid {
   width: 100%;
   height: 100%;
-  background-color: orange;
+  background-color: black;
+  overflow: hidden;
 
   .project-grid-tags {
     background-color: rgba(0, 0, 0, 1.0);
     padding: 3em;
-    flex-basis: 20%;
-    flex-grow: 1;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   .project-grid-buttons {
+    overflow-y: scroll;
     padding: 3em;
     background-color: black;
-    flex-grow: 4;
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: space-around;
 
   }
 
@@ -152,8 +160,9 @@ body {
 
   .project-tags {
     @extend %project-tags;
-    font-size: 1.5em;
-    margin-top: 2em;
+    font-size: 1.2rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 
   }
 
@@ -170,13 +179,12 @@ body {
 }
 
 .project-button {
-  width: 10vw;
-  min-width: 150px;
+  min-width: 175px;
   max-width: 300px;
-  height: 10vw;
-  min-width: 150px;
+  min-height: 175px;
   max-height: 300px;
   padding: 0.5em;
+  margin: 1em;
   background-color: white;
   background-position: center;
   background-size: cover;
@@ -210,12 +218,12 @@ body {
   opacity: 0.33;
 }
 
-.project-grid-button-wrap {
-  width: 100%;
-  height: 100%;
-  display: inline-flex;
-  flex-direction: row;
-  flex-flow: wrap;
-  align-content: space-around;
-  justify-content: space-around;
-}
+// .project-grid-button-wrap {
+//   width: 100%;
+//   height: 100%;
+//   display: inline-flex;
+//   flex-direction: row;
+//   flex-flow: wrap;
+//   align-content: space-around;
+//   justify-content: space-around;
+// }
