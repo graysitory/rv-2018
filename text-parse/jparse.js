@@ -37,7 +37,7 @@ var projZGFRole;
 var projStatus;
 var projTags;
 
-var imgPath = "images/";
+var imgPath = "https://s3-us-west-2.amazonaws.com/rv-test-img-src/";
 
 var textToParse = fs.readFileSync(input, "utf8").split('\n');
 

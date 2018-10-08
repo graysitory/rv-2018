@@ -1,6 +1,12 @@
 // TODO: info panel?
 // TODO: get data from JSON instead of HTML tag?
 
+
+
+
+//DONE: 10/8: figure out how to prev/next through all projects
+//TODO: then figure out how to filter those.
+
 // GLOBAL VARIABLES
 
 var imgPath = "images/";
@@ -9,12 +15,15 @@ var calculatedDimensions = [];
 // var stageHeight = getStageHeight();
 // var stageWidth = getStageWidth();
 
+var allProjects = [];
+var currentTagProjects = [];
+
 
 // Viewport Settings
 var viewport_meta = document.getElementById("viewport-meta");
 var viewports = {
   default: viewport_meta.getAttribute("content"),
-  landscape: "width=990"
+  landscape: "width=1920"
 };
 
 function setViewport() {
@@ -133,13 +142,41 @@ function calcProjectButton() {
 
 function filterProjectGrid(tag) {
 
+  var currentTagProjects = []; // clear the active project type array
   //ref: https://jsfiddle.net/rronyy/vznjbx0t/
   var regex = new RegExp('\\b' + tag + '\\b');
 
 
   $(".project-button").addClass("project-button-filter-inactive").hide().filter(function() {
     return regex.test($(this).data('tag'));
-  }).removeClass("project-button-filter-inactive").show();
+  }).removeClass("project-button-filter-inactive");
+
+
+
+// To Pull all currently filtered stuff...clumsy execution, and returns "undefined" for everything without the class .project-button-filter-inactive.
+  $(".project-button").each(function() {
+    var active = $(this).not(".project-button-filter-inactive").attr("id");
+
+    if ( active !== undefined ) { // prevents pushing "undefined" to array for projects that are not filtered.
+          currentTagProjects.push(active);
+    }
+
+
+    // var active = $(this).not(".project-button-filter-inactive");
+    // currentTagProjects.push(active);
+  });
+
+  console.log(currentTagProjects);
+}
+
+
+
+function getAllProjects() { // cycle through all projects in the grid and push their ids to a global array.
+  $("div.project-button").each(function() {
+    var project = $(this).attr("id");
+    allProjects.push(project);
+    currentTagProjects.push(project);
+  })
 }
 
 
@@ -153,15 +190,10 @@ function setAllButtonText() {
 
 $(document).ready(function() {
   setViewport(); // set viewport
-  calcNavWidth();
-  calcStageWidth();
-  calcFooterWidth();
-  calcNavHeight();
-  calcStageHeight();
-  calcFooterHeight();
-  $("div.project-grid").height(calcStageHeight());
-  $("div.project-grid").width(calcStageWidth());
-  calcProjectButton();
+  getAllProjects(); // populate global array with projects
+
+  console.log(allProjects)
+
 
   window.onresize = function() {
 
@@ -189,10 +221,7 @@ $(document).ready(function() {
 
   $("div.carousel").slick(); // initalize slick
 
-  $("button#showgrid").click(function() {
-
-    calcProjectGridDimensions();
-
+  $("div.header-buttons-projects").click(function() {
     $("div.project-grid").toggleClass("hidden", "remove");
     $("div.project-grid").toggleClass("inline-flex", "add");
     $("div.carousel").slick("unslick");
