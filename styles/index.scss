@@ -83,7 +83,8 @@ body {
     }
   }
 
-  .progot-title {
+
+  .project-title {
     height: auto;
     flex-grow: 1;
     padding: 1em;
@@ -124,7 +125,26 @@ body {
   width: 100vw;
   height: $footer-height;
   background-color: black;
+  display: inline-flex;
+  justify-content: space-around;
+
+  .spacer { // hack to space out base flexbox
+    background-color: none;
+  }
+
+
+  .direction-button {
+    height: 100%;
+    background-color: white;
+    vertical-align: center;
+  }
 }
+
+
+
+
+
+
 
 .inline-flex {
   overflow-y: auto;
