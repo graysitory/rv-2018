@@ -89,7 +89,7 @@ $(document).ready(function() {
 
   $("div.carousel").slick(); // initalize slick
 
-  $("button#showgrid").click(function() {
+  $("div.header-buttons-projects").click(function() {
     $("div.project-grid").toggleClass("hidden", "remove");
     $("div.project-grid").toggleClass("inline-flex", "add");
     $("div.project-grid").height(recalcStageHeight());

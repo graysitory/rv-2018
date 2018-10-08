@@ -16,7 +16,7 @@ $font-stack: "Futura PT", sans-serif;
 // $font-stack: $font-book, sans-serif;
 
 $nav-height: 12%;
-$footer-height: 5%;
+$footer-height: 6%;
 $stage-height: auto;
 
 $stage-width: 100vw;
@@ -91,6 +91,29 @@ body {
     box-sizing: border-box;
   }
 
+      %header-buttons {
+        width: 10%;
+        padding: 1em;
+        box-sizing: border-box;
+        background-color: white;
+        text-transform: uppercase;
+        text-align: center;
+
+      }
+
+      .header-buttons-about {
+        @extend %header-buttons;
+        margin-right: 1em;
+      }
+
+      .header-buttons-projects {
+        @extend %header-buttons;
+        margin-right: 1em;
+
+      }
+
+
+
   %title-base {
     fogo-wrapperfamily: $font-stack;
     color: white;
@@ -126,18 +149,44 @@ body {
   height: $footer-height;
   background-color: black;
   display: inline-flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 
   .spacer { // hack to space out base flexbox
-    background-color: none;
+    background-color: pink;
   }
-
 
   .direction-button {
     height: 100%;
     background-color: white;
     vertical-align: center;
   }
+
+  .filter-notifier { // shows "currently viewing" filter tag
+
+
+    .filter-notifier-title {
+      color: white;
+      text-transform: uppercase;
+      font-size: 0.7em;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+
+    .filter-notifier-current {
+      color: white;
+      text-transform: uppercase;
+      font-size: 1.5em;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+
+  }
+
+
+
+
 }
 
 
