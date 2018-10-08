@@ -1,0 +1,35 @@
+#01 PROJECT ID
+7th-street
+
+#02 PROJECT IMAGES
+Slideshow_7th-Street-01.jpg
+Slideshow_7th-Street-02.jpg
+
+#03 PROJECT THUMBNAIL
+Slideshow_7th-Street-TN.jpg
+
+#04 PROJECT LONG NAME
+7th Street Tactical Urbanism
+
+#05 PROJECT SHORT NAME
+7th Street
+
+#06 CLIENT LONG NAME
+Downtown DC Business Improvement District
+
+#07 CLIENT SHORT NAME
+Downtown DC Business Improvement District
+
+#08 LOCATION
+Washington, DC
+
+#09 SIZE
+7 Blocks
+
+#10 ZGF ROLE
+
+#11 STATUS
+Complete
+
+#12 TAGS
+streetscape innovations

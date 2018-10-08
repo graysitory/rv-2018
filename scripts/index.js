@@ -3,8 +3,11 @@
 
 // GLOBAL VARIABLES
 
-var imgPath = "https://s3-us-west-2.amazonaws.com/rv-test-img-src/";
-var stageHeight = getStageHeight();
+var imgPath = "images/";
+var calculatedDimensions = [];
+
+// var stageHeight = getStageHeight();
+// var stageWidth = getStageWidth();
 
 
 // Viewport Settings
@@ -22,11 +25,109 @@ function setViewport() {
 }
 
 
-function getStageHeight() { // determines stage height to style .carousel-div to correct height.
-  var stageHeight = $("div.stage").height();
+//
+// function calcBodyDimensions() {
+//
+//   var calculatedDimensions = []; // reset calc dimensions array
+//
+//   var winWidth = $(window).width();
+//   var winHeight = $(window).height();
+//
+//   var navWidth = winWidth;
+//   var navHeight = winHeight * 0.12; // 12% of window height
+//
+//   var footerWidth = winWidth;
+//   var footerHeight = winHeight * 0.05; // 5% of window height
+//
+//   var stageWidth = winWidth;
+//   var stageHeight = winHeight - (footerHeight + navHeight);
+//
+//   calculatedDimensions.push(navWidth, navHeight, footerWidth, footerHeight, stageWidth, stageHeight);
+//
+//   return calculatedDimensions;
+//
+// }
 
+
+
+function calcStageWidth() {
+    var winWidth = $(window).width();
+    $("div.stage").width(winWidth);
+}
+
+function calcNavWidth() {
+    var winWidth = $(window).width();
+    $("div.nav").width(winWidth);
+}
+
+function calcFooterWidth() {
+    var winWidth = $(window).width();
+    $("div.footer").width(winWidth);
+}
+
+function calcNavHeight() {
+  var winHeight = $(window).height();
+  var navHeight = winHeight * 0.12; // 12% of window height
+  $("div.nav").height(navHeight);
+  return navHeight;
+}
+
+function calcFooterHeight() {
+  var winHeight = $(window).height();
+  var footerHeight = winHeight * 0.05;
+  $("div.footer").height(footerHeight);
+  return footerHeight;
+}
+
+function calcStageHeight() {
+  var winHeight = $(window).height();
+
+  var otherHeights = calcFooterHeight() + calcNavHeight();
+  var stageHeight = winHeight - otherHeights;
+
+  $("div.stage").height(stageHeight)
   return stageHeight;
 }
+
+function resetStageWidthAndHeight() {
+  var stageWidth = calcStageWidth();
+  var stageHeight = calcStageHeight();
+
+  $("div.project-grid").height(stageHeight);
+  $("div.project-grid").width(stageWidth);
+  $("div.carousel-img").height(stageHeight);
+  $("div.carousel-img").width(stageWidth);
+
+
+}
+
+function calcProjectGridDimensions() {
+  var stageWidth = $("div.stage").width();
+  var stageHeight = $("div.stage").height();
+
+  var tagsWidth = stageWidth * .20;
+  var gridWidth = stageWidth - tagsWidth;
+
+  $("div.project-grid-buttons").width(gridWidth).height(stageHeight);
+
+  $("div.project-grid-tags").width(tagsWidth)
+
+
+}
+
+
+function calcProjectButton() {
+  var gridWidth = $("div.project-grid-buttons").width();
+
+  var buttonSize = gridWidth * .15;
+
+  $("div.project-button").width(buttonSize);
+  $("div.project-button").height(buttonSize);
+
+
+}
+
+
 
 
 
@@ -36,9 +137,9 @@ function filterProjectGrid(tag) {
   var regex = new RegExp('\\b' + tag + '\\b');
 
 
-  $(".project-button").addClass("project-button-filter-inactive").filter(function() {
+  $(".project-button").addClass("project-button-filter-inactive").hide().filter(function() {
     return regex.test($(this).data('tag'));
-  }).removeClass("project-button-filter-inactive");
+  }).removeClass("project-button-filter-inactive").show();
 }
 
 
@@ -52,12 +153,36 @@ function setAllButtonText() {
 
 $(document).ready(function() {
   setViewport(); // set viewport
-  window.onresize = function() {
-    // reset viewport on resize
-    setViewport();
-    getStageHeight();
-  };
+  calcNavWidth();
+  calcStageWidth();
+  calcFooterWidth();
+  calcNavHeight();
+  calcStageHeight();
+  calcFooterHeight();
+  $("div.project-grid").height(calcStageHeight());
+  $("div.project-grid").width(calcStageWidth());
+  calcProjectButton();
 
+  window.onresize = function() {
+
+    setViewport();  // reset viewport on resize
+
+
+    resetStageWidthAndHeight();
+    calcNavWidth();
+    calcStageWidth();
+    calcFooterWidth();
+    calcNavHeight();
+    calcStageHeight();
+    calcFooterHeight();
+    calcProjectButton();
+
+
+
+
+    // $(".carousel-img").height(recalcStageHeight());
+    // getStageWidth();
+  };
   setAllButtonText();
 
 
@@ -65,11 +190,15 @@ $(document).ready(function() {
   $("div.carousel").slick(); // initalize slick
 
   $("button#showgrid").click(function() {
+
+    calcProjectGridDimensions();
+
     $("div.project-grid").toggleClass("hidden", "remove");
     $("div.project-grid").toggleClass("inline-flex", "add");
-    $("div.project-grid").height(stageHeight)
     $("div.carousel").slick("unslick");
     $("div.carousel").html("");
+    $("div.carousel-img").toggleClass("hidden", "add");
+    $("div.carousel").toggleClass("hidden", "add");
 
     var projClient = "";
     var projName = "";
@@ -83,7 +212,7 @@ $(document).ready(function() {
 
   $(".project-button").on("click", function(e) {
 
-    console.log(this)
+
     var imgLinks = this.dataset.img; // get the string of links specified in html tag data-img
     var projClient = this.dataset.clientshort;
     var projName = this.dataset.nameshort;
@@ -96,7 +225,11 @@ $(document).ready(function() {
 
     $("div.project-grid").toggleClass("hidden", "add");
     $("div.project-grid").toggleClass("inline-flex", "remove");
+    $("div.carousel").toggleClass("hidden", "remove");
+    $("div.carousel-img").toggleClass("hidden", "remove")
 
+
+    $(".carousel-img").height(calcStageHeight());
     changeSliderProject(imgLinksArray);
     changeProjectTitle(projClient, projName, projLocation);
 
@@ -133,17 +266,16 @@ function changeSliderProject(currentProject) {
   var carouselImages = [];
   $("div.carousel").slick("unslick"); // destroy previous
 
+  console.log(currentProject)
+  console.log(imgPath)
+
   for (var i = 0; i < currentProject.length; i++) {
-    // create div structure for each image
-    //  carouselImages.push("<div class='"'carousel-img'"'><img src='" + imgPath + currentProject[i] + "'></div>")
-    carouselImages.push(
-      '<div class="carousel-img" style=" height: ' +
-        stageHeight +
-        "px; background-image: url(" +
-        imgPath +
-        currentProject[i] +
-        '); background-size: cover; background-position: center;"> </div>'
-    );
+
+    var carouselImg = '<div class="carousel-img" style="height: ' + calcStageHeight() + 'px; width: ' + calcStageWidth() + 'px; background-image: url(' + imgPath + currentProject[i] + '); background-size: cover; background-position: center;"> </div>'
+
+    carouselImages.push(carouselImg);
+
+    console.log(carouselImages)
   }
   var builtCarousel = carouselImages.join(""); // join each index without a separator
 
