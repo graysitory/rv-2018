@@ -12,7 +12,7 @@ var stageWidth = getStageWidth();
 var viewport_meta = document.getElementById("viewport-meta");
 var viewports = {
   default: viewport_meta.getAttribute("content"),
-  landscape: "width=990"
+  landscape: "width=1920"
 };
 
 function setViewport() {
