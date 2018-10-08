@@ -1,11 +1,19 @@
 // TODO: info panel?
 // TODO: get data from JSON instead of HTML tag?
 
+
+
+
+//DONE: 10/8: figure out how to prev/next through all projects
+//TODO: then figure out how to filter those.
+
 // GLOBAL VARIABLES
 
 var imgPath = "images/";
 var stageHeight = getStageHeight();
 var stageWidth = getStageWidth();
+
+var allProjects = [];
 
 
 // Viewport Settings
@@ -67,6 +75,15 @@ function filterProjectGrid(tag) {
 
 
 
+function getAllProjects() { // cycle through all projects in the grid and push their ids to a global array.
+  $("div.project-button").each(function() {
+    var project = $(this).attr("id");
+    allProjects.push(project);
+
+  })
+}
+
+
 function setAllButtonText() {
   $(".project-button").each(function() {
     $($(this)).html('<p class="button-text-location">' + this.dataset.projlocation + '</p><p class="button-text-project-name">' + this.dataset.nameshort + '</p>')
@@ -76,6 +93,11 @@ function setAllButtonText() {
 
 $(document).ready(function() {
   setViewport(); // set viewport
+  getAllProjects(); // populate global array with projects
+
+  console.log(allProjects)
+
+
   window.onresize = function() {
     // reset viewport on resize
     setViewport();
